@@ -8,11 +8,11 @@ export const Login = () => {
         password: "",
     });
     const navigate=useNavigate();
-
+    const API="https://task-reminder-zgih.onrender.com";
     const handleLogin = async (e) => {
         e.preventDefault(); // Prevent form submission
         try {
-            const res=await axios.post('http://localhost:5000/api/auth/login',{
+            const res=await axios.post(`${API}/api/auth/login`,{
                 email:login.email,
                  password:login.password      
              });

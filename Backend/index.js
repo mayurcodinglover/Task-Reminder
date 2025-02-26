@@ -13,7 +13,7 @@ dotenv.config();
 
 const app=express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({origin:"https://task-reminder-zgih.onrender.com"}));
 dbconnect();
 app.use('/api/auth',authrouter);
 app.use('/api/tasks',router);

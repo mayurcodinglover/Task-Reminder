@@ -7,6 +7,7 @@ export const Task = () => {
         title: "",
         time: "",
     });
+    const API="https://task-reminder-zgih.onrender.com";
     const [tasks, settasks] = useState([]);
     const navigate = useNavigate(); // Initialize useNavigate
 
@@ -20,7 +21,7 @@ export const Task = () => {
         }
 
         try {
-            const response = await axios.get("http://localhost:5000/api/tasks/get", {
+            const response = await axios.get(`${API}/api/tasks/get`, {
                 headers: {
                     auth: `Bearer ${token}`,
                 },
@@ -58,7 +59,7 @@ export const Task = () => {
                 }
 
                 const res = await axios.post(
-                    "http://localhost:5000/api/tasks/add",
+                    `${API}/api/tasks/add`,
                     {
                         title: task.title,
                         time: task.time,
