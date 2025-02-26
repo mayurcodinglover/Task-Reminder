@@ -28,7 +28,9 @@ schedule.scheduleJob("* * * * *",async()=>{
     const tasks=await Task.find({time:`${hour}:${minute}`});
 
     tasks.forEach(task=>{
-        say.speak(`Hey ! It's time for ${task.title}`);
+        for (let i = 0; i < 5; i++) {
+            say.speak(`Hey ! It's time for ${task.title}`);   
+        }
     });
 });
 const port=process.env.port|5000;
